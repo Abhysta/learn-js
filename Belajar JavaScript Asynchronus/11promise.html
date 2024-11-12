@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise</title>
+  </head>
+  <body>
+    <script>
+      //promise merupakan proxy sebuah nilai di masa depan yang belum diketahui saat pembuatan promise tersebut
+      //promise biasa digunakan sebagai proxy untuk proses async
+      //ada 3 state di promise
+      //pending : belum jelas
+      //fulfilled : janji ditepati
+      //rejected : janji tidak ditepati
+      //promise dibuat untuk mengatasi problem callback hell
+
+      //contoh
+      // const promise = new Promise(function (resolve, reject) {
+      //     if (success) {
+      //         resolve(value)
+      //     } else {
+      //         reject(error)
+      //     }
+      // })
+
+      //contoh dengan ajax
+      const promise = new Promise((resolve, reject) => {
+        const ajax = new XMLHttpRequest();
+        ajax.open("GET", "api/product.json");
+        ajax.onload = function () {
+          if (ajax.status === 200) {
+            resolve(JSON.parse(ajax.responseText));
+          } else {
+            reject(`Error Get Product : ${ajax.responseText}`);
+          }
+        };
+        ajax.send();
+      });
+
+      console.log(promise);
+    </script>
+  </body>
+</html>

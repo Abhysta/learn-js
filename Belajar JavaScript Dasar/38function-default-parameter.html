@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Default Parameter</title>
+</head>
+
+<body>
+    <script>
+        /*Sekarang kita tahu bahwa parameter itu optional, artinya kita bisa tidak memberi value terhadap
+        parameter
+        Parameter juga bisa kita beri default value, artinya jika ketika kita tidak mengirim data ke
+        parameter atau kita mengirim data undefined, maka secara otomatis parameter akan diisi oleh
+        default value*/
+
+        //contoh
+        function register(name = "User", gender = "unknown") {
+            console.log(name);
+            console.log(gender);
+        }
+
+        register()
+        register("Abhysta", "Male")
+        register("Abhysta")
+        register("Abhysta", undefined) //hasilnya unknown karena undefined tidak memiliki value
+        register("Abhysta", null) //hasilnya tetap null, karena null dianggap sudah ada value namun kosong
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module Object</title>
+  </head>
+  <body>
+    <script type="module">
+      import * as name from "./8module-object.mjs";
+      console.log(name.firstName);
+      console.log(name.middleName);
+      console.log(name.lastName);
+      name.sayHi(name.firstName, name.middleName, name.lastName);
+      const person = new name.Person(
+        name.firstName,
+        name.middleName,
+        name.lastName
+      );
+      person.sayHi();
+    </script>
+  </body>
+</html>

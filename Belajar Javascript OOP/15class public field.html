@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Field</title>
+</head>
+
+<body>
+    <script>
+        // di dalam js sekarang untuk mendefinisikan property di dalam class
+        // dapat dilakukan secara langsung seperti method tanpa harus memasukkannya ke dalam constructor
+
+        class Person {
+            firstName
+            lastName
+            balance = 0
+
+            constructor(firstName, lastName) {
+                this.firstName = firstName
+                //dengan menggunakan ini maka firstName di constructor akan mengakses firstName yang di luar yg public
+                this.lastName = lastName
+            }
+        }
+
+        const abhysta = new Person("Abhysta", "Huda");
+        console.log(abhysta)
+    </script>
+</body>
+
+</html>

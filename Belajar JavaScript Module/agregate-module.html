@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agregate Module</title>
+  </head>
+  <body>
+    <script type="module">
+      import { Person, name, nama, sum } from "./9agregrate-module.mjs";
+
+      const person = new Person("Abhysta");
+      person.sayHello("Huda");
+      console.log(name);
+      console.log(nama);
+      console.log(sum(1, 2));
+    </script>
+  </body>
+</html>

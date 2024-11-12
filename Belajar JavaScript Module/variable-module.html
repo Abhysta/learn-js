@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variabel</title>
+    <!-- saat variable bentuknya(type) text/javascript maka dia akan menjadi variabel global -->
+    <!-- jadi jika terdapat variabel lain maka akan ter replace dengan yang paling baru -->
+    <!-- <script src="2variable.mjs"></script> -->
+  </head>
+  <body>
+    <script type="module">
+      // saat ada dua variabel dengan nama sama pada module berbeda maka akan error
+      // dan tidak menjadi bertabrakan atau ter replace
+      import { name } from "./2variable.mjs";
+      //   import { name } from "./3variable-demo.mjs.mjs";
+      console.log(name);
+    </script>
+  </body>
+</html>

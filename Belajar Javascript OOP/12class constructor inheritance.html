@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Constructor</title>
+</head>
+
+<body>
+    <script>
+        // Class Inheritance sifatnya seperti Prototype Inheritance
+        // Bagaimana dengan Constructor Inheritance? Sebenarnya Constructor Inheritance hanyalah
+        // melakukan eksekusi constructor lain dengan tujuan agar property di constructor lain bisa
+        // ditambahkan ke instance object ini
+        // Dalam kasus ini, jika kita ingin mencapai hasil yang sama, kita bisa menggunakan kata kunci super
+        // di dalam constructor
+        // Kata kunci super digunakan untuk memanggil constructor super class
+        // Jika di child class kita membuat constructor, maka kita wajib memanggil parent constructor,
+        // walaupun di parent tidak ada constructor
+
+        //contoh
+        class Employee {
+
+            //ket = apabila ada contructor di parent, maka childnya akan otomatis ada constructor tersebut
+            // namun jika ingin ada constructor di childnya harus menggunakan kata kunci super
+            // dan harus memanggil constructor di parentnya
+            constructor(firstName, lastName) {
+                this.firstName = firstName
+                this.lastName = lastName
+            }
+
+            sayHello(name) {
+                console.log(`Hello ${name}, Im is Employee My Name Is ${this.firstName} ${this.lastName}`)
+            }
+        }
+
+        class Manager extends Employee {
+
+            constructor(firstName, lastName) {
+                super(firstName, lastName)
+            }
+
+            sayHello(name) {
+                console.log(`Hello ${name}, Im is Manager My Name Is ${this.firstName} ${this.lastName}`)
+            }
+        }
+
+        const abhysta = new Employee("Abhysta", "H")
+        abhysta.sayHello("A")
+
+        const huda = new Manager("Huda", "A")
+        huda.sayHello("H")
+
+        console.log(abhysta)
+        console.log(huda)
+    </script>
+</body>
+
+</html>

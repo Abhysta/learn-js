@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Optional Parameter</title>
+</head>
+
+<body>
+    <script>
+        /*Secara default, parameter di function itu optional
+        Artinya kita tidak wajib mengisi value nya ketika memanggil function
+        Jika tidak ada value yang kita kirim ke parameter ketika memanggil function, maka secara otomatis
+        parameter tersebut bernilai undefined*/
+
+        //parameter nya kelebihan tidak menjadi masalah karena tidak akan terlihat, namun apabila terjadi error
+        //maka tidak akan terdeteksi
+
+        //contoh
+        function name(firstName, middleName, LastName) {
+            console.log(firstName);
+            console.log(middleName);
+            console.log(LastName);
+        }
+
+        name("Abhysta")
+    </script>
+</body>
+
+</html>

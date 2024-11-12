@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype</title>
+</head>
+
+<body>
+    <script>
+        function Person(firstName, lastName) {
+            this.firstName = firstName
+            this.lastName = lastName
+            this.sayHello = function (name) {
+                console.log(`Hello ${name} My Name Is ${this.firstName}`)
+            }
+        }
+
+        //menambah ke prototype
+        Person.prototype.sayBay = function () {
+            console.log("Hello")
+        }
+        Person.prototype.run = function () {
+            console.log(`${this.firstName} is Running`)
+        }
+
+        const abhysta = new Person("Abhysta", "Huda")
+        abhysta.sayHello("Huda")
+
+        //yg akan tampil sayBay di instance object, karena yg pertama kali di cek yg di instance object
+        abhysta.sayBay = function () {
+            console.log(`Haiii`)
+        }
+
+        const Huda = new Person("Huda", "Arrofif")
+
+        console.log(abhysta)
+        console.log(Huda)
+
+        abhysta.sayBay()
+        abhysta.run()
+
+        // Bagaimana bisa property di prototype diakses dari object instance?
+        // Ketika kita mengakses property di object instance, pertama akan di cek apakah di object tersebut
+        // terdapat property tersebut atau tidak, jika tidak, maka akan di cek di_proto_ (prototype) nya, jika
+        // masih tidak ada, akan di cek lagi di_proto_ (prototype) yang lebih tinggi, begitu seterusnya,
+        // sampai berakhir di Object Prototype
+    </script>
+</body>
+
+</html>

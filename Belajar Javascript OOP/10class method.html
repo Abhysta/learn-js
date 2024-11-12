@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Method Class</title>
+</head>
+
+<body>
+    <script>
+        // untuk method atau function dapat di tambahkan ke dalam constructor dan menjadi
+        // instance object, namun hal itu tidak direkomendasikan karena untuk method
+        // sebaiknya ditaruh di prototype
+        // untuk menaruh di prototype class memudahkan hanya tinggal menulis functionnya pada class
+        // maka akan otomatis masuk ke dalam prototype
+        // contoh
+
+        class Person {
+            constructor(name) {
+                this.name = name
+            }
+
+            sayHello(name) {
+                console.log(`Hello ${name}, My Name Is ${this.name}`)
+            }
+        }
+
+        const abhysta = new Person("Abhysta")
+        abhysta.sayHello("Huda")
+
+        const huda = new Person("Huda")
+        console.log(abhysta)
+        console.log(huda)
+    </script>
+</body>
+
+</html>

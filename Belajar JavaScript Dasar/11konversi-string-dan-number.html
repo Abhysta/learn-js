@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Konversi</title>
+  </head>
+  <body>
+    <script>
+      const value1 = parseInt("1");
+      const value2 = 1;
+      const sum = value1 + value2;
+
+      document.writeln(`<p>${sum}</p>`);
+
+      const value3 = 1.1;
+
+      document.writeln(`<p>${parseInt("1.1")}</p>`);
+      document.writeln(`<p>${parseFloat("1.1")}</p>`);
+      document.writeln(`<p>${Number("1.1")}</p>`);
+      document.writeln(`<p>${value3.toString()}</p>`);
+
+      const a = 1;
+      const b = 2;
+      const c = a.toString() + b.toString();
+
+      document.writeln(`<p>${c}</p>`);
+
+      /* parseInt(string) Mengkonversi dari string ke number
+            (bilangan bulat)*/
+      /* parseFloat(string) Mengkonversi dari string ke number
+            (bilangan pecahan)*/
+      /* Number(string) Mengkonversi dari string ke number
+            (bilangan bulat atau pecahan)*/
+      /* number.toString() Mengkonversi dari number ke string*/
+
+      /*Bagaimana jika ternyata data string yang kita coba konversi ke number bukanlah data yang valid?
+      Jika data string yang kita coba lakukan konversi bukan lah data valid, maka hasil dari konversi
+      tersebut adalah NaN (Not a Number)
+      NaN adalah number spesial yang menyebutkan bahwa ini bukanlah number
+      Jika Nan dioperasikan dengan data number lainnya, maka hasilnya akan menjadi NaN lagi*/
+
+      //parseInt dan Float mentolerir apabila kesalahannya ada dibelakang
+      document.writeln(`<p>${parseInt("1salah")}</P>`); //1
+      document.writeln(`<p>${parseFloat("1.1text")}</p>`); //1.1
+
+      //Number() tidak akan mentolerir kesalahan pada data
+      document.writeln(`<p>${Number("1.1text")}</p>`); //NaN
+      document.writeln(`<p>${Number("1x")}</p>`); //NaN
+      document.writeln(`<p>${Number("not number")}</P>`); //NaN
+
+      //Operasi Pada NaN
+      const v1 = Number("belajar"); //NaN
+      const v2 = 10;
+      const g = v1 + v2;
+
+      //apasaja bilangan yang dioperasikan dengan NaN akan menghasilkan Nan
+      document.writeln(`<p>${g}</p>`);
+
+      //isNan() = pengecekan Number apakah number tersebut NaN atau bukan
+      // menghasilkan nilai boolean
+
+      document.writeln(`<p>${isNaN(g)}</p>`); //true
+      document.writeln(`<p>${isNaN(NaN)}</p>`); //true
+      document.writeln(`<p>${isNaN(v2)}</p>`); //false
+    </script>
+  </body>
+</html>

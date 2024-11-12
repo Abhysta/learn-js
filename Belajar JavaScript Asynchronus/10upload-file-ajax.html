@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload File Ajax</title>
+  </head>
+  <body>
+    <form enctype="multipart/form-data">
+      <label for="username">
+        Username :
+        <input type="text" name="username" id="username" />
+      </label>
+      <label for="password">
+        Password :
+        <input type="text" name="password" id="password" />
+      </label>
+      <label for="profile">
+        Profile :
+        <input type="file" name="profile" id="profile" multiple />
+      </label>
+      <input type="button" value="Register" id="register" />
+    </form>
+
+    <h2 id="response"></h2>
+    <script>
+      //selain json, query param, form, kadang butuh mengirim file
+      //untuk mengirim file ke server, kita perlu menggunakan object form data, lalu
+      //perlu menambahkan object file ke dalam FormData tersebut
+      function doRegister() {
+        const ajax = new XMLHttpRequest();
+        ajax.open("POST", "https://ajax-study.free.beeceptor.com");
+        ajax.onload = function () {
+          const responses = document.getElementById("response");
+          responses.innerText = ajax.responseText;
+        };
+
+        ajax.setRequestHeader("Content-Type", "multipart/form-data");
+
+        const form = new FormData();
+        form.append("username", document.getElementById("username").value);
+        form.append("password", document.getElementById("password").value);
+        form.append("profile", document.getElementById("profile").files);
+
+        ajax.send(form);
+      }
+
+      document.getElementById("register").onclick = doRegister;
+    </script>
+  </body>
+</html>

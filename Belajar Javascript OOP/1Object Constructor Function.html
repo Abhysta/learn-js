@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Contructor Function</title>
+</head>
+
+<body>
+    <script>
+        /*Class adalah blueprint, prototype atau cetakan untuk membuat Object
+        Class berisikan deklarasi semua properties dan functions yang dimiliki oleh Object
+        Setiap Object selalu dibuat dari Class
+        Dan sebuah Class bisa membuat Object tanpa batas*/
+
+        //object biasa
+        const one = {
+            firstName: "Abhysta",
+            lastName: "Huda"
+        }
+
+        const two = {
+            firstName: "Abhysta",
+            lastName: "Huda"
+        }
+
+        // Sebelum EcmaScript versi 6, pembuatan class, biasanya menggunakan function. Hal ini
+        // dikarenakan sebenarnya JavaScript bukanlah bahasa pemrograman yang fokus ke OOP
+        // Untuk membuat class di JavaScript lama, kita bisa membuat function
+        // Function ini kita sebut dengan Constructor Function
+
+        //constructor function seperti function biasa hanya saja nama functionnya
+        //diawali huruf besar
+        //jika ingin menambahkan property tinggal tulis this kemudian titik kemudian nama propertynya
+        // kemudian valuenya
+        function Person() {
+            this.firstName = ""
+            this.lastName = ""
+        }
+
+        //jika ingin membuat object dari class contructor function dapat menggunakan kata kunci new lalu
+        // diikuti nama constructor functionnya
+        const abhysta = new Person()
+        abhysta.firstName = "Abhysta"
+        abhysta.lastName = "Huda"
+
+        console.log(abhysta)
+    </script>
+</body>
+
+</html>

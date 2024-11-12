@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String Template</title>
+  </head>
+  <body>
+    <script>
+      /*JavaScript memiliki fitur yang bernama String Template, dimana kita bisa mensubtitusi data dari
+            luar String ke dalam String, seperti mengambil data variable, atau bahkan melakukan operasi
+            matematika*/
+
+      // untuk string template tidak menggunakan petik tpi menggunakan backtick `
+      //lebih mudah tanpa harus menggunakan +
+      // dapat menambahkan expresion di template (perbandingan)
+      const name = "M. Abhysta Huda A";
+      const umur = 20;
+      const template = `Name : ${name} Age : ${umur}`;
+
+      console.log(template);
+
+      const template2 = `Name : ${name} Age : ${umur < 19}`; //hasil age = false
+      console.log(template2);
+
+      /*String template juga bisa digunakan untuk membuat string multi line
+      Kita cukup tambahkan enter di text nya*/
+
+      const profil = `
+      Nama saya : M. Abhysta Huda A
+      Umur : 20
+      Alamat : Pekalongan`;
+
+      //menggunakan petik satu atau dua tidak suport untuk multiline
+
+      document.writeln("<pre>");
+      document.writeln(profil);
+      document.writeln("</pre>");
+    </script>
+  </body>
+</html>

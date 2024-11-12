@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alias</title>
+  </head>
+  <body>
+    <script type="module">
+      // import membuat nama alias
+      import { name as firstName } from "./6alias.mjs";
+      import { name as middleName } from "./3variable-demo.mjs";
+      console.log(firstName);
+      console.log(middleName);
+      const name = firstName + " " + middleName;
+      console.log(name);
+    </script>
+  </body>
+</html>

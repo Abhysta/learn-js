@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Export Default</title>
+  </head>
+  <body>
+    <script type="module">
+      //   import name from "./7export-default.mjs";
+      import {
+        default as name,
+        middleName,
+      } from "./7export-default-function.mjs";
+      import { default as firtsName } from "./7export-default-var.mjs";
+      import { default as className } from "./7export-default-class.mjs";
+      name("Abhysta");
+      console.log(middleName);
+      console.log(firtsName);
+      const myName = new className("Abhysta");
+      myName.sayHi();
+    </script>
+  </body>
+</html>

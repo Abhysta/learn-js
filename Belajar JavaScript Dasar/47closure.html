@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closure</title>
+</head>
+
+<body>
+    <script>
+        /*Closure adalah kombinasi function dan bundel referensi ke data disekitarnya.
+        Oke agak membingungkan memang, apalagi untuk yang baru pertama belajar
+        Kita sudah tahu bahwa local scope tidak bisa diakses di luar scope nya
+        Dengan kemampuan closure, kita bisa membuat sebuah function di local scope dan referensi ke
+        data di sekitar local scope tersebut, keluar scope nya*/
+
+        function createAdder(value) {
+            const owner = "Abhysta"
+
+            function add(param) {
+                console.log(owner)
+                return value + param
+            }
+
+            return add
+        }
+
+        const addTwo = createAdder(2)
+
+        // function addTwo(param) {
+        //     console.log(owner)
+        //     return 2 + param
+        // }
+
+        console.log(addTwo(10))
+    </script>
+</body>
+
+</html>

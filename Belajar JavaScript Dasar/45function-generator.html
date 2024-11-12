@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Generator</title>
+</head>
+
+<body>
+    <script>
+        /*Function generator adalah function yang digunakan untuk membuat data generator
+        Generator adalah data yang bisa di iterasi seperti Array
+        Untuk membuat function generator, kita perlu menggunakan tanda * (bintang) setelah kata
+        function
+        Dan untuk mengembalikan data di tiap iterasi, kita bisa gunakan kata kunci yield diikuti datanya*/
+
+        //contoh
+        function* myName() {
+            yield "Abhysta"
+            yield "Huda"
+        }
+
+        const names = myName()
+        for (const name of names) {
+            console.log(name)
+        }
+
+        // contoh kompleks
+        function* ganjil(value) {
+            for (let i = 0; i <= value; i++) {
+                if (i % 2 == 1) {
+                    yield i
+                }
+            }
+        }
+
+        const nilaiGanjil = ganjil(10)
+        for (const nilai of nilaiGanjil) {
+            console.log(nilai)
+        }
+
+        /*Generator itu sifatnya lazy
+        Jadi artinya jika data belum kita ambil dari generator, maka yield selanjutnya tidak akan
+        di eksekusi*/
+        //jika dibutuhkan akan dieksekusi jika tidak, tidak akan dieksekusi
+
+        //contoh
+        function* ganjil2(value) {
+            for (let i = 0; i <= value; i++) {
+                if (i % 2 == 1) {
+                    console.log(`Yield ${i}`)
+                    yield i
+                }
+            }
+        }
+        const nilaiGanjil2 = ganjil2(10)
+        for (const nilai of nilaiGanjil2) {
+            console.log(nilai)
+        }
+
+        //eager
+        //contoh
+        function ganjilArray(value) {
+            result = []
+            for (let i = 0; i <= value; i++) {
+                if (i % 2 == 1) {
+                    console.log(`Yield ${i}`)
+                    result.push(i)
+                }
+            }
+            return result
+        }
+        const nilaiGanjil3 = ganjilArray(10)
+        for (const nilai of nilaiGanjil3) {
+            console.log(nilai)
+        }
+
+        function* ganjil3(value) {
+            for (let i = 0; i <= value; i++) {
+                if (i % 2 == 1) {
+                    console.log(`Yield ${i}`)
+                    yield i
+                }
+            }
+        }
+        const angkaGanjil = ganjil2(10)
+        //function bawaan generator yaitu next perulangan iterasi selanjutnya
+        // value untuk mengambil value 
+        console.log(angkaGanjil.next().value)
+    </script>
+</body>
+
+</html>

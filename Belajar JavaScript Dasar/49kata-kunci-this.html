@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kata Kunci This</title>
+</head>
+
+<body>
+    <script>
+        /*Kata kunci this adalah referensi ke object milik siapa
+        Tiap lokasi kata kunci this, bisa berbeda-beda referensi pemilik nya
+        Dalam Object Method, this merupakan referensi ke object pemilik function nya
+        Di global scope, this merupakan referensi ke global object (di browser biasanya Window)
+        Dalam function, this merupakan referensi ke global object (di browser biasanya Window)
+        Di function dengan strict mode (akan dibahas nanti), this adalah undefined
+        Dalam event, this merupakan referensi ke element yang menerima event (dibahas di materi
+        Document Object Model)*/
+
+        //contoh di global scope
+        console.info(this)
+
+        //contoh di function
+        function info() {
+            console.log(this) //antara di global dan di function sama 
+
+            function two() {
+                console.log(this) //window
+            }
+
+            two()
+        }
+
+        info()
+
+        //this di object method
+
+        const person = {
+            names: "Abhysta",
+            //this yang berada di dalam object method akan berubah tidak lagi window
+            //melainkan ke object pemilik function yang terdapat this
+            sayHello: function (name) {
+                //this = person
+                console.log(`Hi ${name}, my name is ${this.names}`) // karena this mengacu ke person
+                // maka untuk mengakses properti yang terdapat pada object pemilik
+                // dapat menggunakan this.property (property yang ada pada object pemilik)
+            }
+        }
+
+        person.sayHello("Huda")
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch API</title>
+  </head>
+  <body>
+    <form>
+      <label for="username">
+        Username :
+        <input type="text" name="username" id="username" />
+      </label>
+      <label for="password">
+        Password :
+        <input type="text" name="password" id="password" />
+      </label>
+      <!-- <label for="profile">
+        Profile :
+        <input type="file" name="profile" id="profile" multiple />
+      </label> -->
+      <input type="button" value="Login" id="login" />
+    </form>
+    <h2 id="response"></h2>
+    <script>
+      //fetch api merupakan fitur baru pengganti ajax
+      //ajax menggunakan callback sedangkan fetch api menggunakan promise
+      //request saat mengirim request menggunakan fetch api, perlu membuat object Request
+
+      //cara 1
+      function doLogin() {
+        const myRequest = new Request("https://ajax-study.free.beeceptor.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            username: document.getElementById("username").value,
+            password: document.getElementById("password").value,
+          }),
+        });
+
+        //megirim data gunakan method fetch(objectnya apa) response nya berupa promise
+        const response = fetch(myRequest);
+
+        response
+          .then(function (response) {
+            document.getElementById("response").textContent = response.status;
+          })
+          .catch(function (error) {
+            document.getElementById("response").textContent = error;
+          });
+
+        console.log(response);
+      }
+
+      //cara2 tetapi tidak direkomendasikan
+      //   function doLogin() {
+      //     const myRequest = fetch("https://ajax-study.free.beeceptor.com", {
+      //       method: "POST",
+      //       headers: {
+      //         "Content-Type": "application/json",
+      //         Accept: "application/json",
+      //       },
+      //       body: JSON.stringify({
+      //         username: document.getElementById("username").value,
+      //         password: document.getElementById("password").value,
+      //       }),
+      //     });
+      //   }
+
+      document.getElementById("login").onclick = doLogin;
+    </script>
+  </body>
+</html>

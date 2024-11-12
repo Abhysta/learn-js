@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise Static Method</title>
+  </head>
+  <body>
+    <table>
+      <tbody id="tbody">
+        <!-- <tr>
+          <td>Id :</td>
+          <td id="id"></td>
+        </tr>
+        <tr>
+          <td>Name :</td>
+          <td id="name"></td>
+        </tr>
+        <tr>
+          <td>Price :</td>
+          <td id="price"></td>
+        </tr> -->
+      </tbody>
+    </table>
+    <script>
+      //promise memiliki beberapa static method
+      //Promise.all() digunakan untuk mengeksekusi beberapa promise sekaligus dan menunggu semua hasil promise nya
+      //Promise.any() digunakan untuk mengeksekusi beberapa promise sekaligus dan mengambil hasil promise paling cepat
+
+      function getProduct(product) {
+        return new Promise((resolve, reject) => {
+          const ajax = new XMLHttpRequest();
+          ajax.open("GET", `api/${product}.json`);
+          ajax.onload = function () {
+            if (ajax.status === 200) {
+              resolve(ajax.responseText);
+            } else {
+              reject(`Error Get Product : ${ajax.status}`);
+            }
+          };
+          ajax.send();
+        });
+      }
+
+      const response = Promise.all([
+        getProduct("product"),
+        getProduct("product2"),
+        getProduct("product3"),
+      ]);
+
+      response.then(function (products) {
+        for (let i = 0; i < products.length; i++) {
+          const json = JSON.parse(products[i]);
+          dataProduct(json);
+        }
+      });
+
+      function dataProduct(json) {
+        const tr = document.createElement("tr");
+        const td = document.createElement("td");
+        td.innerText = "Id :";
+        tr.appendChild(td);
+        const tdId = document.createElement("td");
+        tdId.textContent = json.id;
+        tr.appendChild(tdId);
+        const tdName = document.createElement("td");
+        tdName.textContent = "Name :";
+        const tdNameP = document.createElement("td");
+        tdNameP.textContent = json.name;
+        tr.appendChild(tdName);
+        tr.appendChild(tdNameP);
+
+        const tdPrice = document.createElement("td");
+        tdPrice.textContent = "Price :";
+        const tdPriceP = document.createElement("td");
+        tdPriceP.textContent = json.price;
+        tr.appendChild(tdPrice);
+        tr.appendChild(tdPriceP);
+
+        document.getElementById("tbody").appendChild(tr);
+      }
+    </script>
+  </body>
+</html>

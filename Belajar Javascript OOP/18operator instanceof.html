@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator Instance Of</title>
+</head>
+
+<body>
+    <script>
+        //untuk mengecek sebuah instance sebuah object termasuk dalam sebuah class apa
+        // maka menggunakan instanceOf 
+        // dan akan menghasilkan boolean
+        // jika menggunakan typeOf maka hasilnya akan object karena memang terbuat dari object
+
+        class Employee {
+
+        }
+
+        class Manager extends Employee {
+
+        }
+
+        const abhysta = new Employee()
+        const Huda = new Manager();
+
+        console.log(typeof abhysta) //object
+        console.log(typeof Huda) //object
+
+        //operator instanceOf juga mendukung inheritance artinya dapat mengecek apakah sebuah object merupakan
+        // turunan dari instance class tertentu atau turunan dari class tertentu
+
+        console.log(abhysta instanceof Employee) //true
+        console.log(abhysta instanceof Manager) //false
+        console.log(Huda instanceof Employee) //true karena Manager merupakan turunan dari Employee
+        console.log(Huda instanceof Manager) //true
+    </script>
+</body>
+
+</html>

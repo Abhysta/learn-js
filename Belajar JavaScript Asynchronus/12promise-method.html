@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise Method</title>
+  </head>
+  <body>
+    <table>
+      <tbody>
+        <tr>
+          <td>Id :</td>
+          <td id="id"></td>
+        </tr>
+        <tr>
+          <td>Name :</td>
+          <td id="name"></td>
+        </tr>
+        <tr>
+          <td>Price :</td>
+          <td id="price"></td>
+        </tr>
+      </tbody>
+    </table>
+    <script>
+      //promise memiliki 3 method yang dapat digunakan
+      //then() untuk mendapatkan atau mengubah data ketika promise sukses
+      //catch() untuk mendapatkan data error ketika promise gagal
+      //finally() akan dieksekusi ketika sukses ataupun gagal pada promise
+
+      function getProduct() {
+        return new Promise((resolve, reject) => {
+          const ajax = new XMLHttpRequest();
+          ajax.open("GET", "api/product.json");
+          ajax.onload = function () {
+            if (ajax.status === 200) {
+              resolve(ajax.responseText);
+            } else {
+              reject(`Error Get Product : ${ajax.status}`);
+            }
+          };
+          ajax.send();
+        });
+      }
+
+      getProduct()
+        .then(function (response) {
+          return JSON.parse(response);
+        })
+        .then(function (json) {
+          document.getElementById("id").textContent = json.id;
+          document.getElementById("name").textContent = json.name;
+          document.getElementById("price").textContent = json.price;
+        })
+        .catch(function (error) {
+          document.getElementById("id").textContent = error;
+          document.getElementById("name").textContent = error;
+          document.getElementById("price").textContent = error;
+        })
+        .finally(function () {
+          console.info("Finally");
+        });
+    </script>
+  </body>
+</html>

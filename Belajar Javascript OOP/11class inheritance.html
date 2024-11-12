@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Inheritance</title>
+</head>
+
+<body>
+    <script>
+        // dalam class inheritance seperti property inheritance hanya dapat mewarisi satu class
+        // untuk menwarisi dapat menggunakan kata kunci extends
+
+        class Employee {
+            sayHello(name) {
+                console.log(`Hello ${name}, Im is Employee My Name Is ${this.name}`)
+            }
+        }
+
+        class Manager extends Employee {
+            sayHello(name) {
+                console.log(`Hello ${name}, Im is Manager My Name Is ${this.name}`)
+            }
+        }
+
+        const abhysta = new Employee()
+        abhysta.name = "Abhysta"
+        abhysta.sayHello("A")
+
+        const huda = new Manager("Huda")
+        huda.name = "Huda"
+        huda.sayHello("H")
+
+        console.log(abhysta)
+        console.log(huda)
+    </script>
+</body>
+
+</html>

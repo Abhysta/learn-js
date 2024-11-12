@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring</title>
+</head>
+
+<body>
+    <script>
+        /*Destructuring adalah fitur yang bisa digunakan untuk membongkar value-value di array atau
+        object ke dalam variable-variable
+        Fitur ini sangat mempermudah kita ketika ingin mengambil data dari array atau object tanpa harus
+        melakukan pengambilan data satu persatu*/
+
+        //contoh Manual diarray
+        {
+            const names = ["Abhysta", "Huda", "Arrofif"]
+            const firstName = names[0]
+            const middleName = names[1]
+            const lastName = names[2]
+
+            console.log(firstName)
+            console.log(middleName)
+            console.log(lastName)
+
+            //contoh destructuring di array
+            const person = ["Abhysta", "Huda", "Arrofif", "Pekajangan", 20]
+
+            const [first, second, third, ...other] = person
+            console.log(first)
+            console.log(second)
+            console.log(third)
+            console.log(other)
+
+        }
+
+        {
+            //contoh manual di object
+            const profile = {
+                nameFirst: "Abhysta",
+                nameMiddle: "Huda",
+                nameLast: "Arrofif",
+                address: {
+                    street: "Pekajangan",
+                    number: 43,
+                    country: "Indonesia"
+                },
+                hobby: "Programming",
+                numbePhone: 082328622825
+            }
+
+            const nameOne = profile.nameFirst
+            const alamat = profile.address.street
+
+            console.log(nameOne)
+            console.log(alamat)
+
+            //contoh destructuring object
+
+            // const {
+            //     nameFirst,
+            //     nameMiddle,
+            //     nameLast,
+            //     address,
+            //     ...others
+            // } = profile
+            // console.log(nameFirst)
+            // console.log(nameMiddle)
+            // console.log(nameLast)
+            // console.log(address)
+            // console.log(others)
+
+            //contoh destructuring nested object
+            const {
+                nameFirst,
+                nameMiddle,
+                nameLast,
+                address: {
+                    //karena mengakses property di dalamnya maka addressnya tidak bisa diakses lagi
+                    street,
+                    number,
+                    country
+                },
+                ...others
+            } = profile
+            console.log(nameFirst)
+            console.log(nameMiddle)
+            console.log(nameLast)
+            // console.log(address) //error
+            console.log(street)
+            console.log(number)
+            console.log(country)
+            console.log(others)
+        }
+
+        /* Destructuring function Parameter
+        Destructuring tidak hanya bisa dilakukan di variable, tapi juga bisa dilakukan di function parameter
+        Hal ini membuat kita mudah ketika ingin mengambil nested data dalam array atau object dalam
+        function*/
+        {
+            //parameter object
+            function displayPerson({
+                firstPerson,
+                secondPerson,
+                thirdPerson
+            }) {
+                console.log(firstPerson)
+                console.log(secondPerson)
+                console.log(thirdPerson)
+            }
+
+            const allPerson = {
+                firstPerson: "Abhysta",
+                secondPerson: "Huda",
+                thirdPerson: "Arrofif"
+            }
+
+            displayPerson(allPerson)
+
+            //paramater array
+            function sum([first, second]) {
+                return first + second
+            }
+
+            console.info(sum([1, 2]))
+            console.info(sum([10, 2]))
+            console.info(sum([10, 20]))
+        }
+
+        /*Default Value
+        Yang paling menarik di destructuring adalah, kita bisa menambahkan default value
+        Jadi misal kita kita melakukan destructuring terhadap array, ternyata tidak ada datanya, maka kita
+        bisa menambahkan default value
+        Begitu juga pada object, jika ternyata property nya tidak ada, maka kita bisa menambahkan default
+        value*/
+
+        {
+            //contoh di array
+            const names = ["Abhysta", "Huda"] //jika ada akan diambil nilai di array
+
+            const [firstName, middleName = "A", lastName = "Arrofif"] = names // jika tidak ada akan diambil
+            //default value nya
+
+            console.info(firstName)
+            console.info(middleName)
+            console.info(lastName)
+
+            //contoh di object
+            const person = {
+                first: "Abhysta"
+            }
+
+            const {
+                first,
+                middle = "A",
+                last = "Arrofif"
+            } = person // jika tidak ada akan diambil
+            //default value nya
+
+            console.info(first)
+            console.info(middle)
+            console.info(last)
+        }
+
+        /* Menggunakan Nama Variabel Lain
+        Saat melakukan destructuring di Array, kita bisa dengan mudah membuat nama variable sesuka
+        kita
+        Namun pada saat melakukan destructuring, kita harus membuat nama variable sama dengan nama
+        property
+        Kita juga bisa menggunakan nama variable lain saat melakukan destructuring object jika kita mau*/
+
+        {
+            // menggunakan nama variabel lain di object
+            const person = {
+                first: "Abhysta",
+                middle: "Huda"
+            }
+
+            const {
+                first: pertama,
+                middle: tengah = "A",
+                last: terakhir = "Arrofif"
+            } = person // jika tidak ada akan diambil
+            //default value nya
+
+            console.info(pertama)
+            console.info(tengah)
+            console.info(terakhir)
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>State Ajax</title>
+  </head>
+  <body>
+    <h2 id="response"></h2>
+    <script>
+      //ajax memiliki tahapan state dimana kita bisa mendapatkan banyak skali state di ajax
+      //menggunakan property readyState
+      //properti tersebut mengembalikan nilai number
+      //value 0 = unsent = Client Created open() namun belum dipanggil
+      //value 1 = opened = open() sudah dipanggil
+      //value 2 = HEADER_RECEIVED = send() sudah dipanggil, dan header dan status sudah available
+      //value 3 = LOADING = downloading responseText dan partial data
+      //value 4 = DONE = operasi selesai
+      //untuk mengetahui setiap perubahan gunakan eventlistener readystatechange
+      const ajax = new XMLHttpRequest();
+      ajax.onreadystatechange = () => {
+        console.log(`Ready State Change ${ajax.readyState}`);
+      };
+      // ajax.addEventListener('readystatechange', ()=> {})
+      ajax.open("GET", "api/hello.json");
+      ajax.addEventListener("load", () => {
+        const responses = document.getElementById("response");
+        const json = JSON.parse(ajax.responseText);
+        responses.textContent = json.response;
+      });
+      ajax.send();
+    </script>
+  </body>
+</html>

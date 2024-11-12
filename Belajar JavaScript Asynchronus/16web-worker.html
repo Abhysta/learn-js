@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Worker</title>
+  </head>
+  <body>
+    <p>Ini Body</p>
+    <button id="btnTask">Click Me</button>
+    <script>
+      //js = single thread artinya walaupun proses yang kita buat adalah async, tapi tetap dijalankan dalam thread(proses) yang sama
+      //kemampuan satu thread dalam mengelola beberapa pekerjaan dinamakan concurent
+      //kemampuan menjalankan beberapa thread untuk mengelola satu atau lebih pekerjaan dinamakan pararel
+      //dan untuk membuat proses secara pararel, kita bisa menggunakan Web Worker
+      //thread worker digunakan untuk mengatasi proses yang berjalan lambat sehingga akan menyebabkan hang
+      //oleh karenanya digunakan thread worker untuk membuatnya berjalan pararel
+
+      //contoh proses lambat yang menjadikan button tidak bisa diclick sebelum selesai
+      //   function showLog(total) {
+      //     for (let i = 0; i < total; i++) {
+      //       console.log(i);
+      //     }
+      //   }
+
+      //   document.getElementById("btnTask").onclick = () => {
+      //     console.log("start log");
+      //     showLog(100000);
+      //     console.log("end log");
+      //   };
+
+      //thread dapat dilihat pada task manager
+      //Web Worker adalah kemampuan untuk menjalankan proses di Thread yang berbeda dibanding Main Thread
+      //keuntungannya adalah jika terdapat proses yang membutuhkan waktu lama, maka web tidak akan freeze
+      //karena proses tersebut bisa dijalankan di Thread yang berbeda dari Main Thread
+      //untuk membuat web worker API kita bisa membuat object dengan nama Worker
+      //object worker tidak otomatis berjalan melainkan perlu memberi perintah dengan cara mengirim pesan
+      //untuk mengirim pesan kita bisa menggunakan method postMessage()
+      //sedangkan untuk menerima balasan dari worker kita bisa menggunakan listener onmessage
+      //data yang diterima adalah object MessageEvent
+
+      const worker = new Worker("16worker.js");
+
+      //   worker.onmessage = callback
+      worker.addEventListener("message", function (message) {
+        console.log(message.data);
+      });
+
+      document.getElementById("btnTask").onclick = function () {
+        worker.postMessage(100000);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Optional Chaining</title>
+  </head>
+  <body>
+    <script>
+      /*Optional chaining operator (?) merupakan operator yang digunakan untuk mengamankan ketika
+      kita ingin mengakses property sebuah object dari data nullish
+      Jika kita mencoba mengakses property dari sebuah object dari data nullish tanpa menggunakan
+      optional chaining operator, maka akan terjadi error*/
+
+      //apbila object di dalam object atributnya digunakan untuk value pada kolom bagian atas
+      // jika didalamnya object lagi maka tidak akan ditampilkan di console.table
+      let data = {
+        nama: "Abhysta",
+        nim: "1900016074",
+        addres: {
+          alamat: "Pekalongan",
+          country: {
+            provinsi: "Jawa Tengah",
+          },
+        },
+      };
+
+      console.table(data);
+
+      //let nama = data.name.nama; //error karena atribute tidak ada
+      //agar berjalan oleh karena itu harus melakukan pengecekan dapat menggunakan perulangan
+      //dan optional chaining
+      //let nama;
+      //   if (data.name !== undefined && data.name !== null) {
+      //     nama = data.nama.alamat;
+      //   }
+
+      let alamat = data?.addres?.country?.provinsi;
+      document.writeln(`SUKSES`);
+
+      document.writeln(`<p>${alamat}</P>`);
+      document.writeln(`SUKSES`);
+    </script>
+  </body>
+</html>

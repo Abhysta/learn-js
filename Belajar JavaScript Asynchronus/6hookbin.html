@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hookbin</title>
+  </head>
+  <body>
+    <h2 id="response"></h2>
+    <script>
+      //idealnya ajax perlu bantuan server oleh karena itu gunakan hookbin
+      //hookbin adalah aplikasi yang dapat digunakan untuk menerima request HTTP dan menyimpan datanya
+      const ajax = new XMLHttpRequest();
+      ajax.open("GET", "https://ajax-study.free.beeceptor.com");
+      ajax.addEventListener("load", () => {
+        const responses = document.getElementById("response");
+        const json = ajax.responseText;
+        responses.textContent = json;
+      });
+      ajax.send();
+    </script>
+  </body>
+</html>

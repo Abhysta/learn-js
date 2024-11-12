@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Field</title>
+</head>
+
+<body>
+    <script>
+        // jika menambahkan static dalam static field, maka secara otomatis field tersebut bukan lagi
+        // milik instance object, melainkan milik class nya sendiri
+        // static digunakan jika ingin memmbuat utility field atau function
+        // untuk mengaksesnya pun tidak melalui object seperti dimasukkan ke dalam const nama object = new namaclass()
+        // melainkan mengakses classnya secara langsung
+        // static class field bersifat global, tidak peduli diakses darimanapun atau siapa yang mengakses hasilnya sama
+
+        class Configuration {
+            static name = "Belajar JS OOP"
+            static time = 23.07
+            static date = "17/02/2022"
+        }
+
+        //tanpa static
+        const config = new Configuration()
+        console.log(config)
+
+        //dengan static
+
+        //jika di ubah maka akan ikut berubah
+        Configuration.name = "JS OOP"
+
+        console.log(Configuration)
+        console.log(Configuration.name)
+        console.log(Configuration.time)
+        console.log(Configuration.date)
+    </script>
+</body>
+
+</html>

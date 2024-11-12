@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Receive Data Ajax</title>
+  </head>
+  <body>
+    <h2 id="response"></h2>
+    <script>
+      //untuk mendapatkan hasil response dari server dapat menggunakan callback
+      //yang akan dieksekusi setelah proses ajax selesai
+      //untuk menambahkan ajax callback dapat menggunakan event listener load atau onload
+      //untuk mendapat data dari server gunakan properti responseText
+      const ajax = new XMLHttpRequest();
+      ajax.open("GET", "api/hello.json");
+
+      ajax.addEventListener("load", function () {
+        const json = JSON.parse(ajax.responseText);
+        const response = document.getElementById("response");
+        response.textContent = json.response;
+      });
+
+      ajax.send();
+    </script>
+  </body>
+</html>

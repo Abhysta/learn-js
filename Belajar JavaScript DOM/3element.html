@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Element</title>
+  </head>
+  <body>
+    <div id="content" class="content">
+      <h1 id="title" class="title"></h1>
+      <p id="text" class="description"></p>
+      <div id="desc"></div>
+    </div>
+
+    <script>
+      const title = document.getElementById("title");
+      title.textContent = "Belajar";
+
+      const text = document.getElementById("text");
+      text.textContent = "lagi belajar nih";
+
+      //Property Element
+      const content = document.getElementById("content");
+      console.log(content.id);
+      console.log(content.className);
+      console.log(content.tagName);
+
+      //methode elemet
+      //   text.remove();
+      //   title.remove();
+
+      //create element
+      const desc = document.getElementById("desc");
+      const newEl = document.createElement("h2");
+      newEl.textContent = "Lagi apa ?";
+      desc.appendChild(newEl);
+    </script>
+  </body>
+</html>

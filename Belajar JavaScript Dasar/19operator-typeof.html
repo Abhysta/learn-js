@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeOf</title>
+</head>
+
+<body>
+    <script>
+        //typeof merupakan operator yang bisa kita gunakan untuk melihat tipe data sebuah value atau
+        // variable
+        // Karena JavaScript merupakan dynamic langauge, jadi kadang kita perlu mengecek tipe data
+        // sebuah value atau variable menggunakan operator typeof
+        // Hasil dari operator typeof adalah string tipe datanya
+
+
+        //bigint harus ada n dibelakang
+        let data = Symbol();
+
+        if (typeof data === "number") {
+            alert("Number");
+        } else if (typeof data === "boolean") {
+            alert("Boolean");
+        } else if (typeof data === "string") {
+            alert("String");
+        } else if (typeof data === "bigint") {
+            alert("Bigint");
+        } else if (typeof data === "function") {
+            alert("Function");
+        } else if (typeof data === "object") {
+            alert("Object");
+        } else if (typeof data === "undefined") {
+            alert("Undefined");
+        } else if (data) {
+            alert(typeof data);
+        }
+    </script>
+</body>
+
+</html>

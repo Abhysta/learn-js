@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL Search Params</title>
+  </head>
+  <body>
+    <input type="text" id="search" />
+    <input type="text" id="filter" />
+    <input type="button" value="search" id="searchBtn" />
+    <h2 id="response"></h2>
+    <script>
+      //selain JSON kadang saat mengirim data ajax kita hanya mengirim data dalam
+      //bentuk query parameter
+      //pada kasus ini kita bisa mengubah urlnya dengan menambahkan query paramnya
+      //namun ada cara lain dengan menggunakan object URLSearchParam
+
+      function doSearch() {
+        const ajax = new XMLHttpRequest();
+        const param = new URLSearchParams();
+        param.append("search", document.getElementById("search").value);
+        param.append("filter", document.getElementById("filter").value);
+        // //search=""&filter=""
+
+        ajax.open(
+          "GET",
+          `https://ajax-study.free.beeceptor.com?${param.toString()}`
+        );
+        ajax.onload = () => {
+          const responses = document.getElementById("response");
+          responses.innerText = ajax.responseText;
+        };
+
+        ajax.send();
+      }
+
+      document.getElementById("searchBtn").onclick = doSearch;
+    </script>
+  </body>
+</html>

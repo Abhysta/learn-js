@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Function Return Value</title>
+  </head>
+  <body>
+    <script>
+      /*Secara default, function itu tidak menghasilkan value apapun, namun jika kita ingin, kita bisa
+            membuat sebuah function mengembalikan value
+            Agar function bisa menghasilkan value, kita bisa menggunakan kata kunci return di dalam function
+            nya.
+            Dan di dalam block function, untuk menghasilkan nilai tersebut, kita harus menggunakan kata
+            kunci return, lalu diikuti dengan data yang ingin kita hasilkan.
+            Function hanya bisa mengembalikan satu data, jika kita ingin mengembalikan beberapa data
+            sekaligus, kita bisa menggunakan Array sebagai return value nya*/
+
+      //Membuat function dengan parameter dan return value
+      function sayHello(firstName, lastName) {
+        const say = `Hello ${firstName} ${lastName}`;
+        return say;
+      }
+
+      //memanggil function dan menangkap return value nya
+      const result = sayHello("Abhysta", "Huda");
+      document.writeln(`<p>${result}</p>`);
+
+      //return function lebih dari satu dapat lebih dari satu jika kondisinya berbeda beda
+      //misal A = ....; B = ....
+      //jika dalam kondisi yang sama hanya boleh satu return
+      function getValue(value) {
+        if (value > 90) {
+          return "A";
+        } else if (value > 80) {
+          return "B";
+        } else if (value > 70) {
+          return "C";
+        } else if (value > 80) {
+          return "D";
+        } else {
+          return "E";
+        }
+      }
+
+      //menagkap value
+      const hasil = getValue(91);
+      document.writeln(`<p>${hasil}</p>`);
+
+      /*Saat kita menggunakan kata kunci return, maka kode setelah return tersebut tidak akan dieksekusi
+      Kita bisa menggunakan return untuk menghentikan eksekusi sebuah function*/
+
+      //contoh
+      function isContains(array, searchValue) {
+        for (const parameter of array) {
+          console.log(`Iterasi Elemet ${parameter}`);
+          if (parameter === searchValue) {
+            return true;
+          }
+        }
+        return false;
+      }
+
+      const array = [1, 212, 5, 4, 5, 6, 87, 2, 3, 4, 3];
+      const search = 3;
+      const found = isContains(array, search);
+      document.writeln(`<p>${found}</p>`);
+
+      //secara langsung untuk mencari nilai dapat menggunakan isContains([], nilai yg dicari)
+      //document.writeln(`<p>${isContains([1, 2, 3, 4, 5, 6, 7], 5)}</p>`);
+
+      //apabila menggunakan console tidak perlu menangkap value nya
+      //console.log(isContains([1, 2, 3, 4, 5, 6, 7, 8], 6));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Belajar JS</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+    <script>
+        console.log("Halooooo");
+    </script>
+</head>
+
+<body>
+    <p>Belajar</p>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <script>
+        const books = [{
+                title: 'The Da Vinci Code',
+                author: 'Dan Brown',
+                sales: 5094805
+            },
+            {
+                title: 'The Ghost',
+                author: 'Robert Harris',
+                sales: 807311
+            },
+            {
+                title: 'White Teeth',
+                author: 'Zadie Smith',
+                sales: 815586
+            },
+            {
+                title: 'Fifty Shades of Grey',
+                author: 'E. L. James',
+                sales: 3758936
+            },
+            {
+                title: 'Jamie\'s Italy',
+                author: 'Jamie Oliver',
+                sales: 906968
+            },
+            {
+                title: 'I Can Make You Thin',
+                author: 'Paul McKenna',
+                sales: 905086
+            },
+            {
+                title: 'Harry Potter and the Deathly Hallows',
+                author: 'J.K Rowling',
+                sales: 4475152
+            },
+        ];
+
+        const greatAuthors = books.filter((books) => books.sales > 1000000).map((books) => {
+            return `${books.author} adalah penulis buku ${books.title} yang sangat hebat!`
+        })
+        console.log(greatAuthors)
+    </script>
+    <a href="#" onclick="alert('Yeayyy')">Klikkk</a>
+    <a href="javascript:alert('Yeay')">Klikk lagiii</a>
+</body>
+
+</html>

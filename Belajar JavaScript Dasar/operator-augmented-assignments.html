@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator Aritmatika</title>
+  </head>
+  <body>
+    <script>
+      let result = 1 + 2; //3
+      document.writeln("<p>1 + 2 = " + result + "</p>");
+      let originalResult = result; //3
+
+      result -= 1; //2
+      document.writeln("<p>" + originalResult + " - 1 = " + result + "</p>");
+      originalResult = result; //2
+
+      //disingkat
+      result *= 2; //4
+      document.writeln("<p>" + originalResult + " * 2 = " + result + "</p>");
+      originalResult = result; //4
+
+      result /= 2; //2
+      document.writeln("<p>" + originalResult + " / 2 = " + result + "</p>");
+      originalResult = result; //2
+
+      result **= 4; //16
+      document.writeln("<p>" + originalResult + " ** 4 = " + result + "</p>");
+      originalResult = result; //16
+
+      result %= 3; //1
+      document.writeln("<p>" + originalResult + " % 3 = " + result + "</p>");
+      originalResult = result; //1
+    </script>
+  </body>
+</html>

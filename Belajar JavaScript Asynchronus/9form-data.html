@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Data Ajax</title>
+  </head>
+  <body>
+    <form enctype="application/x-www-form-urlencoded">
+      <label for="username">
+        Username :
+        <input type="text" name="username" id="username" />
+      </label>
+      <label for="password">
+        Password :
+        <input type="text" name="password" id="password" />
+      </label>
+      <input type="button" value="Login" id="login" />
+    </form>
+
+    <h2 id="response"></h2>
+    <script>
+      //selain JSON dan Query Param kadang kita juga ingin mengirim Form Data dari Client dengan ajax
+      //untuk kasus ini kita bisa tetap menggunakan URLSearchParam
+      //namun object URLSearchParam nya kita kirim pada method send()
+
+      function doLogin() {
+        const ajax = new XMLHttpRequest();
+        ajax.open("POST", "https://ajax-study.free.beeceptor.com");
+        ajax.onload = function () {
+          const responses = document.getElementById("response");
+          responses.innerText = ajax.responseText;
+        };
+
+        ajax.setRequestHeader(
+          "Content-Type",
+          "application/x-www-form-urlencoded"
+        );
+
+        const form = new URLSearchParams();
+        form.append("username", document.getElementById("username").value);
+        form.append("password", document.getElementById("password").value);
+
+        ajax.send(form);
+      }
+
+      document.getElementById("login").onclick = doLogin;
+    </script>
+  </body>
+</html>

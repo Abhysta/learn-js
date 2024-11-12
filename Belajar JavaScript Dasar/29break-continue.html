@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Break Dan Continue</title>
+  </head>
+  <body>
+    <script>
+      /*Pada switch statement, kita sudah mengenal kata kunci break, yaitu untuk menghentikan case
+      dalam switch
+      Sama dengan pada perulangan, break juga digunakan untuk menghentikan seluruh perulangan.
+      Namun berbeda dengan continue, continue digunakan untuk menghentikan perulangan saat ini,
+      lalu melanjutkan ke perulangan selanjutnya*/
+
+      //contoh break
+      let nilai = 1;
+      while (true) {
+        document.writeln(`<p>Perulangan ke : ${nilai}</P>`);
+        nilai++;
+
+        if (nilai > 10) {
+          break;
+        }
+      }
+
+      //contoh continue
+      for (let i = 1; i <= 100; i++) {
+        // dan jika continue maka yang di eksekusi terlebih dahulu adalah post statement kemudian kondisi
+        if (i % 2 === 0) {
+          //apabila i sisa hasil baginya = 0 maka lanjut perulangannya dan tidak akan mencetak hasilnya
+          continue;
+        }
+        document.writeln(`<p>Perulangan Ganjil ${i}</p>`);
+      }
+    </script>
+  </body>
+</html>

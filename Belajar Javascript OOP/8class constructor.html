@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor Class</title>
+</head>
+
+<body>
+    <script>
+        // jadi pada class kita tidak bisa memberi parameter, untuk memberikan parameter
+        // dapat menggunakan constructor
+        // dengan cara menuliskan constructor(parameter) sehingga seperti constructor function
+
+        class Person {
+            constructor(name) {
+                console.log(`Halooo ${name}`)
+            }
+        }
+
+        const abhysta = new Person("Abhysta")
+        const huda = new Person("Huda")
+        console.log(abhysta)
+        console.log(huda)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array</title>
+  </head>
+  <body>
+    <script>
+      /*Array adalah tipe data yang berisikan kumpulan data
+            Array di JavaScript memiliki sifat dinamis, artinya datanya bisa bertambah dengan sendirinya saat
+            kita memasukkan data ke dalam Array*/
+
+      /*Cara kerja Array
+            Setiap data di Array akan disimpan dalam posisi berurutan, dimana urutan pertama dimulai dari
+      nomor O
+      Setiap kita menambah data ke Array, otomatis data akan disimpan di urutan terakhir
+      Urutan di Array, kita sebut dengan index*/
+
+      /*Data di dalam array tidak memiliki batasan datanya boleh bebas tipe datanya*/
+
+      //index dalam array hanya berupa number karena itu tidak bisa menggunakan associative array
+      /*Jika kita memaksa memasukkan data bukan number di index Array, maka JavaScript akan merubah
+      tipe data Array tersebut menjadi object, dan ini bisa berbahaya, karena beberapa operasi di array
+      mungkin bisa berubah hasilnya */
+
+      /*Dapat Memasukan array ke dalam array*/
+      let arrayKosong = [];
+      let arrayNama = ["Abhysta", "Huda", "Arrofif", 1991, true];
+
+      //Menambah Array
+      //data yang dimasukan bebas tipe datanya
+      const nama = [];
+      nama.push("Abhysta");
+      nama.push("Huda", "Arrofif", 1991, true);
+
+      console.table(nama); //informasi yang ditampilkan berupa table
+
+      console.log(nama[1]);
+      console.log(nama[2]);
+
+      nama[0] = "M. Abhysta";
+      nama[1] = "Huda A";
+      console.table(nama);
+
+      delete nama[2];
+      console.table(nama);
+
+      nama.push("Pekalongan");
+      console.table(nama);
+
+      /*walaupun sudah di delete dan indexnya hilang namun masih boleh 
+      untuk diubah, karena yang dihilangkan hanya data bukan indexnya*/
+      nama[2] = "September";
+      //array di dalam array
+      nama.push(["M. Abhysta", "Huda", "A"]);
+      console.table(nama);
+      //Operasi dalam tipe data array
+      //array.push(value) = Menambah data ke Array
+      //array.length = Mendapatkan panjang array
+      //array[index] = Mendapatkan data di posisi index
+      //array[index] = value |Mengubah data di posisi index
+      //delete array[index] = Menghapus data di posisi index, namun index tidak bergeser
+    </script>
+  </body>
+</html>

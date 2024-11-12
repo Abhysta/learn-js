@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <form name="todoForm">
+      <table>
+        <tbody>
+          <tr>
+            <td><label for="todo">Todo :</label></td>
+            <td><input type="text" id="todo" name="todo" /></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td><input type="submit" value="Add" /></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+
+    <h1>Todo List</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Filter :</th>
+          <th><input type="text" name="search" id="search" /></th>
+        </tr>
+      </thead>
+      <tbody id="todoListBody">
+        <tr>
+          <td><input type="button" value="Done" /></td>
+          <td>Todo Description</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <script>
+      const todolist = ["Belajar", "Todo"];
+
+      displayTodoList();
+
+      function clearTodoList() {
+        const todoListBody = document.getElementById("todoListBody");
+        while (todoListBody.firstChild) {
+          todoListBody.removeChild(todoListBody.firstChild);
+        }
+      }
+
+      function removeTodoList(index) {
+        todolist.splice(index, 1);
+        displayTodoList();
+      }
+
+      function addTodoList(index, todo) {
+        const tr = document.createElement("tr");
+        const tdBtn = document.createElement("td");
+        tr.appendChild(tdBtn);
+
+        const btnDone = document.createElement("input");
+        btnDone.type = "button";
+        btnDone.value = "Done";
+        btnDone.onclick = function () {
+          removeTodoList(index);
+        };
+        tdBtn.appendChild(btnDone);
+
+        const tdTodo = document.createElement("td");
+        tdTodo.textContent = todo;
+        tr.appendChild(tdTodo);
+
+        const todoListBody = document.getElementById("todoListBody");
+        todoListBody.appendChild(tr);
+      }
+
+      function displayTodoList() {
+        clearTodoList();
+        for (let i = 0; i < todolist.length; i++) {
+          const todo = todolist[i];
+
+          const searchText = document
+            .getElementById("search")
+            .value.toLowerCase();
+
+          if (todo.toLowerCase().includes(searchText)) {
+            addTodoList(i, todo);
+          }
+        }
+      }
+
+      document.forms["todoForm"].onsubmit = function (event) {
+        event.preventDefault();
+
+        const todo = document.forms["todoForm"]["todo"].value;
+        todolist.push(todo);
+
+        document.forms["todoForm"].reset();
+        displayTodoList();
+      };
+
+      document.getElementById("search").onkeyup = (e) => {
+        displayTodoList();
+      };
+      document.getElementById("search").onkeydown = (e) => {
+        displayTodoList();
+      };
+    </script>
+  </body>
+</html>

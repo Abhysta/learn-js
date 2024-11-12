@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Contructor Function Method</title>
+</head>
+
+<body>
+    <script>
+        function Person() {
+            this.firstName = ""
+            this.lastName = ""
+            this.sayHello = function (name) {
+                console.log(`Hello ${name} My Name Is ${this.firstName}`)
+            }
+        }
+
+        const abhysta = new Person()
+        abhysta.firstName = "Abhysta"
+        abhysta.lastName = "Arrofif"
+        abhysta.sayHello("Huda")
+
+        console.log(abhysta)
+    </script>
+</body>
+
+</html>

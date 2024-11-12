@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tipe Data Object</title>
+  </head>
+  <body>
+    <script>
+      /*Tipe data object adalah tipe data yang mirip dengan tipe data Array
+      Yang membedakan adalah index pada tipe data object bisa menggunakan string atau number
+      Index di object biasanya disebut attributes atau properties, bukan index*/
+
+      const objectKosong = {};
+
+      //Menambah atau mengubah
+      objectKosong["nama"] = "M. Abhysta Huda A";
+      objectKosong["Alamat"] = "Pekalongan";
+      objectKosong["umur"] = 20;
+
+      console.table(objectKosong);
+
+      //mengubah
+      objectKosong["nama"] = "abhysta";
+      console.table(objectKosong);
+
+      delete objectKosong["umur"];
+      console.table(objectKosong);
+
+      //memasukkan data secara langsung di object
+      const object = {
+        "nama saya": "M. Abhysta Huda A", //menggunakan petik dua apabila atribute terdapat spasi
+        alamat: "Pekalongan",
+        umur: 20,
+      };
+      console.table(object);
+
+      //Mengakses property object
+      console.log(`Nama : ${object["nama saya"]}`); //untuk mengakses object yang atributenya terdapat spasi
+      console.log(`Alamat : ${object.alamat}`);
+      console.log(`Umur : ${object.umur}`);
+
+      //mengakses object dapat menggunakan Object.values(nama object)
+    </script>
+  </body>
+</html>

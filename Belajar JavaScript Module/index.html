@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Module</title>
+    <!-- saat menggunakan module type nya harus module -->
+    <!-- namun saat menggunakan import tidak wajib menggunakan src module karena sudah otomatis -->
+    <!-- <script type="module" src="1module.mjs"></script> -->
+  </head>
+  <body>
+    <!-- gunakan import untuk mengakses module -->
+    <!-- gunakan import {namavariable} from lokasi (jika hanya satu)
+    gunakan import ${nama variable function atau class} from lokasi (jika lebih dari satu) -->
+    <script type="module">
+      import { sayHello, sayBye } from "./1module.mjs";
+      sayHello("abhysta");
+      sayBye("abhysta");
+    </script>
+  </body>
+</html>

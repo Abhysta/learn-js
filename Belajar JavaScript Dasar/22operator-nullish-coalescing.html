@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nullish Coalescing Operator</title>
+  </head>
+  <body>
+    <script>
+      /*Nullist value adalah null dan undefined
+      Nullist coalescing operator (??) adalah operator mirip dengan ternary operator, yang membedakan
+      adalah pada kondisi, jika bernilai null atau undefined, baru value default nya diambil*/
+
+      //dengan if
+      let nilai;
+
+      let hasil = nilai;
+      if (nilai === undefined || nilai === null) {
+        hasil = 0;
+      }
+
+      document.writeln(`<p>${hasil}</P>`);
+
+      //Nullish coalescing
+
+      hasil = nilai ?? "Nilai Default";
+
+      document.writeln(`<p>${hasil}</p>`);
+    </script>
+  </body>
+</html>

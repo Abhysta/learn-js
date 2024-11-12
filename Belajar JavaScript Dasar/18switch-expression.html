@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Switch Expression</title>
+  </head>
+  <body>
+    <script>
+      /*Kadang kita hanya butuh menggunakan kondisi sederhana di if statement, seperti hanya
+      menggunakan perbandingan =-
+      Switch adalah statement percabangan yang sama dengan if, namun lebih sederhana cara
+      pembuatannya
+      Kondisi di switch statement hanya untuk perbandingan ==*/
+      const nilai = "E";
+      switch (nilai) {
+        case "A":
+          document.writeln("Selamat Nilai Memuaskan");
+          break;
+        case "B":
+        case "C":
+          document.writeln("Selamat Nilai Mencukupi");
+          break;
+        case "D":
+          document.writeln("Try Again");
+          break;
+        default:
+          document.writeln("Hmmmmm");
+      }
+
+      if (nilai == "A") {
+        document.writeln("<p>Lulus</P>");
+      } else if (nilai == "B" || nilai == "C") {
+        document.writeln("<p>Mencukupi</P>");
+      } else if (nilai == "D") {
+        document.writeln("<p>Try Again</P>");
+      } else {
+        document.writeln("<p>Hmmmmm</P>");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operator Ternary</title>
+  </head>
+  <body>
+    <script>
+      /*Ternary operator adalah operator sederhana dari if statement
+      Ternary operator terdiri dari kondisi yang dievaluasi, jika menghasilkan true maka nilai pertama
+      diambil, jika false, maka nilai kedua diambil*/
+
+      const nilai = 90;
+      let hasil;
+
+      if (nilai >= 70) {
+        hasil = "Lulus";
+      } else {
+        hasil = "Ughhhh";
+      }
+
+      document.writeln(`<p>${hasil}</p>`);
+
+      //ternary
+      const nilai2 = 74;
+      const hasil2 = nilai2 >= 75 ? "Lulus" : "Jangan Menyerah";
+
+      document.writeln(`<p>${hasil2}</p>`);
+    </script>
+  </body>
+</html>
